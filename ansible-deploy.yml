@@ -1,0 +1,7 @@
+- hosts: localhost
+  tasks:
+  - name: Deploy the application
+    command: kubectl apply -f pods.yml
+
+  - name: create a service
+    command: kubectl apply -f service.yml
