@@ -10,7 +10,7 @@ pipeline {
     stages {
         stage('Git Clone'){
             steps{
-              git 'https://github.com/ajibjawwad/sample-web-app.git'
+              git 'https://github.com/ajibjawwad/java-hello-world-webapp.git'
             }
         }
 
