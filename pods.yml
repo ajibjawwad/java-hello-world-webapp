@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: app
-        image: jebro/java-hello-world:1.0
+        image: jebro/java-hello-world:1.0.1
         ports:
         - containerPort: 8080
