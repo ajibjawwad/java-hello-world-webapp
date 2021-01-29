@@ -5,6 +5,7 @@ pipeline {
       def mvnHome = tool name: 'maven3', type: 'maven'
       def mvnCMD = "${mvnHome}/bin/mvn"
       def tfHome = tool name: 'Ansible'
+      def Version = '1.0.2'
     }
 
     stages {
@@ -22,7 +23,7 @@ pipeline {
 
         stage('Docker Build'){
             steps{
-              sh 'docker build -t jebro/java-hello-world:1.0.1 .'
+              sh 'docker build -t jebro/java-hello-world:${Version} .'
             }
         }
 
@@ -31,7 +32,7 @@ pipeline {
               withCredentials([string(credentialsId: 'dockerpwd', variable: 'dockerpwd')]) {
                 sh "docker login -u jebro -p ${dockerpwd}"
               }
-              sh 'docker push jebro/java-hello-world:1.0.1'
+              sh 'docker push jebro/java-hello-world:${Version}'
             }
         }
 
